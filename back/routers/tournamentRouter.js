@@ -88,5 +88,29 @@ router.get('/getfree', (req, res) => {
     
 });
 
+router.get('/getcash', (req, res) => {
+
+    Model.find({tournament_type: 'Cash'})
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+    
+});
+
+router.get('/getxp', (req, res) => {
+
+    Model.find({tournament_type: 'XP'})
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+    
+});
+
 
 module.exports = router;
